@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="manifest" href="/manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="باشگاه بیلیارد">
+    <link rel="apple-touch-icon" href="/static/icon-192x192.png">
+    <meta charset="UTF-8">
+    <title>باشگاه بیلیارد تست</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script src="/static/script.js"></script>
+</head>
+<body>
+    <h1>باشگاه بیلیارد تست</h1>
+
+    <div id="report-buttons">
+        <button class="large-button" onclick="window.location.href='/today_report'">گزارش درآمد امروز</button>
+        <button class="large-button" onclick="window.location.href='/yesterday_report'">گزارش درآمد دیروز</button>
+    </div>
+
+
+    <div id="tables">
+        {% for table in tables %}
+            <div class="table" id="table-{{ table.id }}">
+                <h2>میز شماره {{ table.id }}</h2>
+                <button onclick="startGame({{ table.id }})" {% if table.in_use %}disabled{% endif %}>شروع</button>
+                <button onclick="stopGame({{ table.id }})" {% if not table.in_use %}disabled{% endif %}>پایان</button>
+                <p>وضعیت میز: <span>{{ 'در حال استفاده' if table.in_use else 'خالی' }}</span></p>
+                <p><span>هزینه: </span><span class="cost">0 تومان</span></p>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
