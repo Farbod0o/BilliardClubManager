@@ -1,0 +1,21 @@
+{
+    "name": "باشگاه بیلیارد",
+    "short_name": "بیلیارد",
+    "description": "باشگاه بیلیارد - وب اپلیکیشن تستی",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#35654d",
+    "theme_color": "#35654d",
+    "icons": [
+        {
+            "src": "/static/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/static/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
